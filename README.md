@@ -16,7 +16,7 @@ Yup, it is. It's a quick hack with some features added as an afterthought. But i
 
 ## Commands
 ```
-usage: blink1.py [-h] [-c COLOR] [-s] [-tc TARGET_COLOR] [-t TIME] text
+usage: morse.py [-h] [-c COLOR] [-s] [-tc TARGET_COLOR] [-t TIME] text
 
 positional arguments:
   text                  This is the text that should be emitted
