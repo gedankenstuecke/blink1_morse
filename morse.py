@@ -79,7 +79,7 @@ def translateMorse(morse_array,base_length=100,color="255,255,255",shift_color=F
             waitEmit(base_length*4+BLINK_TOOL_DELAY)
         else:
             for j in character:
-                if shift_color == True:
+                if shift_color == True and blink_counter > 0:
                     color = newColor(color,[mod_r,mod_g,mod_b],target,blink_counter)
                 if j == "-":
                     emitDit(base_length,color,dah=True)
@@ -93,9 +93,9 @@ def newColor(color,modulos,target,blink_counter):
     out_color = []
     for i,single_color in enumerate(color_array):
         if color_array[i] < target[i]:
-            out_color.append(color_array[i] +  abs(modulos[i]))
+            out_color.append(min(color_array[i] +  abs(modulos[i]),255))
         elif color_array[i] > target[i]:
-            out_color.append(color_array[i] - abs(modulos[i]))
+            out_color.append(max(color_array[i] - abs(modulos[i]),0))
         else:
             out_color.append(color_array[i])
     colors = ",".join([str(i) for i in out_color])
@@ -116,7 +116,7 @@ def colorDiff(base,target,number_blinks):
     '''
     color_difference = []
     for i,value in enumerate(target):
-        diff = (value-base[i])/number_blinks
+        diff = int(round(float(value-base[i])/max(number_blinks-1,1)))
         if diff == 0:
             diff = 1
         color_difference.append(diff)
