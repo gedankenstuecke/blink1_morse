@@ -2,7 +2,7 @@
 This is a small python script that wraps around the blink1-tool for the command line. It translates the command line input text into [morse code](http://en.wikipedia.org/wiki/Morse_code) and emits them through the blink1. 
 
 ## Setup
-* Make sure you have [downloaded the right version of the blink1-tool](http://thingm.com/products/blink-1.html) for your OS. 
+* Make sure you have [downloaded the right version of the blink1-tool](http://blink1.thingm.com/blink1-tool/) for your OS. 
 * Set the BLINK_TOOL_PATH in morse.py to the full path to your blink1-tool
 * That should be it! 
 
